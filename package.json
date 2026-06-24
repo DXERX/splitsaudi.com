@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "optimize:assets": "node scripts/optimize-sia-waffle.mjs",
+    "optimize:assets": "node scripts/optimize-sia-waffle.mjs && node scripts/optimize-76-waffle.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.44",
+    "sharp": "^0.35.2",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "vite": "^5.4.2"

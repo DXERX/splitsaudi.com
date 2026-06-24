@@ -14,6 +14,7 @@ export default function ProductImage({ product, className = '', animate = false,
 
   const bg = getProductBackground(product.slug)
   const needsGlow = bg === 'green-camo' || bg === 'black' || product.slug === 'sia-waffle'
+  const needsOutline = bg === 'yellow-camo' || product.slug === '76-waffle'
 
   return (
     <div
@@ -22,6 +23,12 @@ export default function ProductImage({ product, className = '', animate = false,
       {needsGlow && (
         <div
           className="absolute inset-[8%] rounded-full bg-white/15 blur-2xl pointer-events-none"
+          aria-hidden
+        />
+      )}
+      {needsOutline && (
+        <div
+          className="absolute inset-[6%] rounded-3xl ring-1 ring-black/10 pointer-events-none"
           aria-hidden
         />
       )}

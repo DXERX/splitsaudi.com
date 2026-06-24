@@ -13,7 +13,7 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   'sia-double': '/brand/products/sia-double.svg',
   'sia-pants': '/brand/products/sia-pants.svg',
   'sia-waffle': '/brand/products/sia-waffle.svg',
-  '76-waffle': '/brand/products/76-waffle.svg',
+  '76-waffle': '/brand/products/76-waffle.png',
   'patch-shorts': '/brand/products/patch-shorts.svg',
 }
 
