@@ -2,8 +2,9 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import type { Product } from '../lib/types'
-import { getProductBackground, getProductImage } from '../lib/brand-assets'
+import { getProductBackground } from '../lib/brand-assets'
 import PageBackground, { PageBackgroundOverlay } from './PageBackground'
+import ProductImage from './ProductImage'
 import PriceTag from './PriceTag'
 
 interface Props {
@@ -15,7 +16,6 @@ export default function ProductShowcase({ product, index }: Props) {
   const ref = useRef<HTMLElement>(null)
   const reduceMotion = useReducedMotion()
   const bg = getProductBackground(product.slug)
-  const img = getProductImage(product.slug)
   const isLight = bg === 'yellow-camo'
   const textClass = isLight ? 'text-split-black' : 'text-white'
   const floatDelay = index * 0.12
@@ -50,16 +50,11 @@ export default function ProductShowcase({ product, index }: Props) {
               className={reduceMotion ? 'relative' : 'relative animate-float-gentle'}
               style={reduceMotion ? undefined : { animationDelay: `${floatDelay}s` }}
             >
-              {img && (
-                <img
-                  src={img}
-                  alt={product.name}
-                  className="w-full h-auto max-h-[min(58svh,520px)] object-contain drop-shadow-[0_32px_64px_rgba(0,0,0,0.55)]"
-                  draggable={false}
-                  loading="lazy"
-                  decoding="async"
-                />
-              )}
+              <ProductImage
+                product={product}
+                priority={index === 0}
+                className="w-full max-h-[min(58svh,520px)]"
+              />
               <motion.div
                 className="absolute -bottom-1 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-2 md:bottom-6"
                 initial={{ opacity: 0, y: 12 }}

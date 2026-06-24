@@ -21,7 +21,14 @@ function MarqueeCard({ p }: { p: Product }) {
             bg === 'yellow-camo' ? 'bg-split-yellow' : bg === 'red' ? 'bg-split-red' : 'bg-split-black'
           }`}
         >
-          <img src={img} alt="" className="h-12 w-12 object-contain" draggable={false} loading="lazy" />
+          <img
+            src={img}
+            alt=""
+            className="h-12 w-12 object-contain drop-shadow-md"
+            draggable={false}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       )}
       <div>
