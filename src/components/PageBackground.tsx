@@ -1,4 +1,4 @@
-import { BRAND, getProductBackground } from '../lib/brand-assets'
+import { getProductBackground } from '../lib/brand-assets'
 
 export type BackgroundType = ReturnType<typeof getProductBackground>
 
