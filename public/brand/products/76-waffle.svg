@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" fill="#fffd7d"/>
+  <ellipse cx="180" cy="200" rx="120" ry="90" fill="rgba(255,255,255,0.5)"/>
+  <ellipse cx="340" cy="280" rx="100" ry="80" fill="rgba(255,255,255,0.35)"/>
+  <path d="M156 420h200v24H156z" fill="#010101" opacity="0.15"/>
+  <text x="256" y="460" text-anchor="middle" fill="#010101" font-family="Arial,sans-serif" font-size="28" font-weight="bold">76 WAFFLE</text>
+</svg>
