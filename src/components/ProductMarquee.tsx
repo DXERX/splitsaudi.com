@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Product } from '../lib/types'
 import { getProductBackground, getProductImage } from '../lib/brand-assets'
-import { useMobileLite } from '../hooks/useMobileLite'
 import PriceTag from './PriceTag'
 
 interface Props {
@@ -36,25 +35,11 @@ function MarqueeCard({ p }: { p: Product }) {
 }
 
 export default function ProductMarquee({ products }: Props) {
-  const lite = useMobileLite()
-
-  if (lite) {
-    return (
-      <section className="py-4 border-y border-white/10 bg-split-black overflow-x-auto overscroll-x-contain">
-        <div className="flex gap-3 w-max px-4 pb-1">
-          {products.map((p) => (
-            <MarqueeCard key={p.id} p={p} />
-          ))}
-        </div>
-      </section>
-    )
-  }
-
   const items = [...products, ...products]
 
   return (
-    <section className="py-6 border-y border-white/10 bg-split-black overflow-hidden">
-      <div className="marquee-track flex gap-6 w-max px-4">
+    <section className="py-5 md:py-6 border-y border-white/10 bg-split-black overflow-hidden">
+      <div className="marquee-track flex gap-4 md:gap-6 w-max px-4">
         {items.map((p, i) => (
           <MarqueeCard key={`${p.id}-${i}`} p={p} />
         ))}

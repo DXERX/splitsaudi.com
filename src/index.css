@@ -16,8 +16,8 @@
   body {
     @apply bg-split-black text-white font-sans overflow-x-hidden;
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 253, 125, 0.06), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 50%, rgba(227, 27, 35, 0.04), transparent);
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 253, 125, 0.07), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 50%, rgba(227, 27, 35, 0.05), transparent);
   }
 
   ::selection {
@@ -39,6 +39,12 @@
       radial-gradient(ellipse 30% 20% at 45% 80%, rgba(200, 180, 50, 0.5) 0%, transparent 60%);
   }
 
+  .camo-yellow-soft {
+    background-image:
+      radial-gradient(ellipse 50% 35% at 80% 20%, rgba(255, 255, 255, 0.55) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 30% at 10% 70%, rgba(255, 230, 80, 0.4) 0%, transparent 60%);
+  }
+
   .camo-green {
     background-color: #2a3520;
     background-image:
@@ -47,9 +53,29 @@
       radial-gradient(ellipse 30% 20% at 80% 75%, rgba(80, 95, 60, 0.6) 0%, transparent 60%);
   }
 
+  .camo-green-soft {
+    background-image:
+      radial-gradient(ellipse 45% 35% at 15% 25%, rgba(90, 110, 70, 0.5) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 28% at 85% 75%, rgba(50, 65, 40, 0.45) 0%, transparent 60%);
+  }
+
   .marquee-track {
-    animation: marquee-scroll 35s linear infinite;
+    animation: marquee-scroll 32s linear infinite;
     will-change: transform;
+  }
+
+  .animate-float-gentle {
+    animation: float-gentle 4.2s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .animate-orbit-slow {
+    animation: orbit-slow 28s linear infinite;
+    will-change: transform;
+  }
+
+  .animate-scroll-hint {
+    animation: scroll-hint 2.4s ease-in-out infinite;
   }
 
   @keyframes marquee-scroll {
@@ -61,15 +87,43 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-track {
-      animation: none;
+  @keyframes float-gentle {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -14px, 0);
     }
   }
-}
 
-@media (max-width: 767px) {
-  body {
-    background-image: none;
+  @keyframes orbit-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes scroll-hint {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 0.35;
+    }
+    50% {
+      transform: translate3d(0, 8px, 0);
+      opacity: 0.55;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .animate-float-gentle,
+    .animate-orbit-slow,
+    .animate-scroll-hint {
+      animation: none;
+    }
   }
 }
